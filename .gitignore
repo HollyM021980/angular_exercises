@@ -8,6 +8,6 @@ tmp/*
 *.out
 
 ## UI files to ignore
-bower_components/*
+*/bower_components/*
 .env
-node_modules/*
+*/node_modules/*

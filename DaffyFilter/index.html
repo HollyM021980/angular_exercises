@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Angular Demo 8</title>
+<script src="bower_components/angular/angular.js"></script>
+</head>
+<body ng-app="Demo">
+
+{{ 'angular is fun' | capitalize }}<br>
+
+  {{'Success!!!' | daffy}}<br>
+
+  {{'Successfull snails Slither silently.' | daffy}}<br>
+
+  <div ng-controller='DafCtrl'>
+    Enter a thentence: <input type="text" ng-model="AngString" >
+
+      {{AngString | daffy}}
+
+
+  </div>
+
+
+
+  <script src="js/app.js"></script>
+</body>
+</html>
