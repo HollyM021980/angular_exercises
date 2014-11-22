@@ -1,5 +1,9 @@
 # Staffing UI
 
+## [Return to main README.md](../README.md)
+
+## Run UI
+- Make sure the API is running per the [instructions here](../staffing_ui/README.md)
 - Run `bower install` in this directory to install required JS libraries.
 - Run `ruby -run -e httpd -- -p 5000 .`
 - open [http://localhost:5000](http://localhost:5000) in your browser to see the contents of this folder.
