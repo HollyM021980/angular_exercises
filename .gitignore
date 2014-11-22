@@ -1,0 +1,13 @@
+log/*
+tmp/*
+
+## generic files to ignore
+*.lock
+*.DS_Store
+*.swp
+*.out
+
+## UI files to ignore
+bower_components/*
+.env
+node_modules/*

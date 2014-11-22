@@ -1,0 +1,11 @@
+{
+  "name": "wdi-angular",
+  "version": "0.0.1",
+ "dependencies": {
+    "angular": "~1.3.3",
+    "angular-route": "~1.3.3",
+    "bootstrap": "~3.2.0",
+    "lodash": "~2.4.1"
+  },
+  "devDependencies": {}
+}
