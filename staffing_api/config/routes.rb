@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
   resources :staffing_requests, except: [:new, :edit]
-  
+
   resources :allocations, except: [:new, :edit]
-  
+
   resources :projects, except: [:new, :edit]
-  
+
   resources :skills, except: [:new, :edit]
 
   resources :users, except: [:new, :edit] do
@@ -12,7 +12,8 @@ Rails.application.routes.draw do
   end
 
   resources :titles, except: [:new, :edit]
-  
+
+  post '/users', to: 'users#create'
   post '/login', to: 'users#login'
   get '/logout', to: 'users#logout'
 end
