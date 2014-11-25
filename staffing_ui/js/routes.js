@@ -18,6 +18,10 @@ angular.module('StaffingUI').config(function($routeProvider) {
             templateUrl: 'templates/login.html',
             controller: 'LoginCtrl'
         })
+        .when('/signup', {
+            templateUrl: 'templates/signup.html',
+            controller: 'SignupCtrl'
+        })
         .when('/about', {
             templateUrl: 'templates/about.html',
         })

@@ -12,6 +12,7 @@ angular.module('StaffingUI', [
     SkillFactory
 ) {
     $rootScope.$on('$routeChangeStart', function(event, next) {
+
         if (AuthFactory.isAuthenticated()) {
             if (AuthFactory.isAuthenticated()) {
                 $http.defaults.headers.common['Authorization'] = 'Token token=' + $window.sessionStorage.getItem('staffingUI.user');
@@ -21,7 +22,9 @@ angular.module('StaffingUI', [
             TitleFactory.fetch();
             SkillFactory.fetch();
         } else {
-            $location.path('/login');
+            if (($location.path() != '/login') && ($location.path() != '/signup')) {
+                $location.path('/login');
+            }
         }
     });
 });

@@ -1,13 +1,26 @@
 angular.module('StaffingUI').factory('AuthFactory', function($http, $window, ServerUrl) {
+
+
     var login = function(credentials) {
         return $http
-            .post(ServerUrl + '/login', credentials)
+            .post(ServerUrl + 'login', credentials)
             .success(function(response) {
                 $window.sessionStorage.setItem('staffingUI.user', response.token);
 
                 $http.defaults.headers.common['Authorization'] = 'Token token=' + $window.sessionStorage.getItem('staffingUI.user');
             });
     };
+
+    var signup = function(credentials) {
+        return $http
+            .post(ServerUrl + 'signup', credentials)
+            .success(function(response) {
+                $window.sessionStorage.setItem('staffingUI.user', response.token);
+
+                $http.defaults.headers.common['Authorization'] = 'Token token=' + $window.sessionStorage.getItem('staffingUI.user');
+            });
+    };
+
 
     var logout = function(credentials) {
         return $http
@@ -23,6 +36,7 @@ angular.module('StaffingUI').factory('AuthFactory', function($http, $window, Ser
 
     return {
         login: login,
+        signup: signup,
         logout: logout,
         isAuthenticated: isAuthenticated
     };
