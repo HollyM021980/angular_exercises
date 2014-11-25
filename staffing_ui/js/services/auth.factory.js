@@ -12,13 +12,17 @@ angular.module('StaffingUI').factory('AuthFactory', function($http, $window, Ser
     };
 
     var signup = function(credentials) {
+        var params = {
+            user: credentials
+        };
+debugger;
         return $http
-            .post(ServerUrl + 'signup', credentials)
-            .success(function(response) {
-                $window.sessionStorage.setItem('staffingUI.user', response.token);
+        .post(ServerUrl + 'users', params)
+        .success(function(response) {
+            $window.sessionStorage.setItem('staffingUI.user', response.token);
 
-                $http.defaults.headers.common['Authorization'] = 'Token token=' + $window.sessionStorage.getItem('staffingUI.user');
-            });
+            $http.defaults.headers.common['Authorization'] = 'Token token=' + $window.sessionStorage.getItem('staffingUI.user');
+        });
     };
 
 
