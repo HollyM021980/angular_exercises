@@ -18,7 +18,7 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+    @users = User.includes(:title, :skills).all
 
     render json: @users, :include => [:title, :skills]
   end
