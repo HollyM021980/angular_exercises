@@ -1,11 +1,12 @@
 class SkillsController < ApplicationController
   before_filter :authenticate
+  before_filter :admin_only, only: [:index]
 
   # GET /skills
   # GET /skills.json
   def index
     @skills = Skill.all
-    
+
     render json: @skills
   end
 
@@ -40,7 +41,7 @@ class SkillsController < ApplicationController
       user = User.find(params[:user_id])
 
       user.skills << @skill
-      
+
       head :no_content
     else
       if @skill.update(skill_params)
@@ -73,5 +74,9 @@ class SkillsController < ApplicationController
 
     def skill_params
       params.require(:skill).permit(:name, :user_id)
+    end
+
+    def admin_only
+      return unauthorized_msg(self.headers) unless is_admin?
     end
 end
